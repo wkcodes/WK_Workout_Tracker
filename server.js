@@ -19,6 +19,7 @@ mongoose.connect(process.env.ATLAS_URI || "mongodb://localhost/exercise", {
 });
 
 app.use(require("./routes/api.js"));
+require("./routes/html_routes")(app);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);

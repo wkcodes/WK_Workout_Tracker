@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const Exercise = require("../models/exercise.js");
+const Workout = require("../models/model.js");
 
-// Get all exercises(working)
+// Get all workouts (working)
 router.get("/api/workout", (req, res) => {
-    Exercise.find({})
+    Workout.find({})
       .sort({ date: -1 })
-      .then(exercise => {
-        res.json(exercise);
+      .then(Workout => {
+        res.json(Workout);
       })
       .catch(err => {
         res.status(400).json(err);
@@ -14,9 +14,9 @@ router.get("/api/workout", (req, res) => {
   });
 
   router.post("/api/workout", ({ body }, res) => {
-    Transaction.create(body)
-      .then(exercise => {
-        res.json(exercise);
+    Workout.create(body)
+      .then(Workout => {
+        res.json(Workout);
       })
       .catch(err => {
         res.status(400).json(err);
